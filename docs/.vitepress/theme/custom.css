@@ -1,0 +1,110 @@
+/* =============================================================
+   纳米Work 视觉系统
+   气质：克制的企业级质感，唯一的设计亮点在首页 Hero 的军团点位图。
+   其余区块统一收敛为安静的排版逻辑：靠间距、字号、极细分隔线组织
+   内容，不用彩色卡片边框/彩色图标底色做重复装饰。
+   ============================================================= */
+
+:root {
+  /* 品牌主色：深蓝，唯一用于强调的色相 */
+  --vp-c-brand-1: #1e3a6e;
+  --vp-c-brand-2: #16294f;
+  --vp-c-brand-3: #0f2247;
+  --vp-c-brand-soft: rgba(30, 58, 110, 0.08);
+
+  /* 唯一的点缀色：低饱和金，呼应"军团/勋章"意象，极少量使用 */
+  --nw-gold: #b8934f;
+  --nw-gold-soft: rgba(184, 147, 79, 0.16);
+
+  /* 页面背景：暖白，带一点纸感温度，不用冷白 */
+  --vp-c-bg: #f7f5f0;
+  --vp-c-bg-alt: #f0ede4;
+  --vp-c-bg-soft: #eae6da;
+
+  --vp-c-text-1: #1a2233;
+  --vp-c-text-2: #4a5468;
+  --vp-c-text-3: #8891a3;
+
+  --vp-c-divider: #ded8c8;
+
+  --nw-card-bg: #fcfbf8;
+  --nw-card-border: #e3ddce;
+  --nw-hero-bg: #0b1b3a;
+}
+
+.dark {
+  --vp-c-brand-1: #7ea0d8;
+  --vp-c-brand-2: #5b82c4;
+  --vp-c-brand-3: #4a74e8;
+  --vp-c-brand-soft: rgba(126, 160, 216, 0.12);
+
+  --nw-gold: #d4b273;
+  --nw-gold-soft: rgba(212, 178, 115, 0.14);
+
+  --vp-c-bg: #0d1526;
+  --vp-c-bg-alt: #101a30;
+  --vp-c-bg-soft: #16213a;
+
+  --vp-c-text-1: #f0eee6;
+  --vp-c-text-2: #a8b0bf;
+  --vp-c-text-3: #6b7688;
+
+  --vp-c-divider: #23304a;
+
+  --nw-card-bg: #101a30;
+  --nw-card-border: #23304a;
+  --nw-hero-bg: #060d1c;
+}
+
+/* -----------------------------------------------------------
+   排版：主标题用更紧的字距和更高的字重制造力度，
+   不依赖字体本身（中文自定义字体在部署环境不可控）。
+   ----------------------------------------------------------- */
+.VPHero .name,
+.VPHero .text {
+  letter-spacing: -0.02em;
+}
+
+.VPHero .name {
+  font-weight: 800;
+  color: var(--vp-c-text-1) !important;
+  background: none !important;
+  -webkit-text-fill-color: currentColor !important;
+}
+
+/* -----------------------------------------------------------
+   Feature 卡片：收回彩色边框/图标底色，改为安静的分隔线卡片。
+   hover 时只做极轻的位移，不做颜色变化的强调。
+   ----------------------------------------------------------- */
+.VPFeatures .VPFeature {
+  background-color: var(--nw-card-bg) !important;
+  border: 1px solid var(--nw-card-border) !important;
+  border-radius: 4px !important;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.VPFeatures .VPFeature:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(11, 27, 58, 0.08);
+}
+
+.VPFeature .icon {
+  background-color: transparent !important;
+  border: 1px solid var(--vp-c-divider);
+  border-radius: 4px;
+  color: var(--vp-c-brand-1);
+}
+
+.VPFeature .title {
+  font-weight: 600;
+  letter-spacing: -0.01em;
+}
+
+.VPFeature .details {
+  color: var(--vp-c-text-2);
+}
+
+/* 圆角统一收紧为 4px 的克制风格，替代 VitePress 默认的大圆角 */
+.VPButton {
+  border-radius: 4px !important;
+}
